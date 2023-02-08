@@ -137,6 +137,31 @@ GNU Privacy Guard de Docker, con las siguientes líneas en la terminal.
  </code>
 </pre>
 
+<p>Para evitar el uso constante de sudo debe crear un
+grupo llamado docker mediante el siguiente comando:
+</p>
+
+<pre>
+  <code style="background-color: #eee; border: 1px solid #999; display: block; padding: 5px;">
+    >$ sudo groupadd docker
+ </code>
+</pre>
+
+<p>Luego, debe agregar su usuario a ese grupo, usando el siguiente comando:
+</p>
+
+<pre>
+  <code style="background-color: #eee; border: 1px solid #999; display: block; padding: 5px;">
+    >$ sudo usermod -aG docker ${USER}
+ </code>
+</pre>
+
+<p>Para que estos cambios tomen efecto debe reiniciar la computadora o cerrar
+la sesión (hacer log-off) de su computadora. Puede verificar que haya sido
+agregado correctamente al grupo ejecutando el comando <code>groups</code>
+en la terminal.
+</p>
+
 <h2>Instalación en sistema operativo Windows</h2>
 
 <p> Actualmente OpenLane no está soportado en Windows. Si no desea instalar
@@ -181,11 +206,11 @@ necesitar permisos de root):
 <pre>
   <code style="background-color: #eee; border: 1px solid #999; display: block; padding: 5px;">
     >$ git clone https://github.com/The-OpenROAD-Project/OpenLane.git
-    >$ git config --global --add safe.directory <Ruta al OpenLane descargado>
+    <!-- >$ git config --global --add safe.directory <Ruta al OpenLane descargado> -->
     >$ cd <Ruta al OpenLane descargado>
     >$ sudo make
-    >$ sudo make test
-    >$ sudo chmod 0775 -R <Ruta al OpenLane descargado>
+    >$ make test
+    <!-- >$ sudo chmod 0775 -R <Ruta al OpenLane descargado> -->
  </code>
 </pre>
 
@@ -235,34 +260,9 @@ el otro lado la ruta donde se enuentra docker es usualmente
 
 <pre>
   <code style="background-color: #eee; border: 1px solid #999; display: block; padding: 5px;">
-    >$ sudo make mount
+    >$ make mount
  </code>
 </pre>
-
-<p>Para evitar el uso constante de sudo para correr OpenLane debe crear un
-grupo llamado docker mediante el siguiente comando:
-</p>
-
-<pre>
-  <code style="background-color: #eee; border: 1px solid #999; display: block; padding: 5px;">
-    >$ sudo groupadd docker
- </code>
-</pre>
-
-<p>Luego, debe agregar su usuario a ese grupo, usando el siguiente comando:
-</p>
-
-<pre>
-  <code style="background-color: #eee; border: 1px solid #999; display: block; padding: 5px;">
-    >$ sudo usermod -aG docker ${USER}
- </code>
-</pre>
-
-<p>Para que estos cambios tomen efecto debe reiniciar la computadora o cerrar
-la sesión (hacer log-off) de su computadora. Puede verificar que haya sido
-agregado correctamente al grupo ejecutando el comando <code>groups</code>
-en la terminal.
-</p>
 
 
 <h1>FAQs</h1>
